@@ -1,6 +1,7 @@
 package org.example.collections;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,6 +17,7 @@ class StapelTest {
     }
 
     @Test
+    @DisplayName("should return true when isEmpty called on empty Stapel")
     void isEmpty_emptyStack_returnsTrue() {
 
         // Arrange
