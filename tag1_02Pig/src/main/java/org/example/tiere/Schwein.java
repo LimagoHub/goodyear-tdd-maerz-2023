@@ -5,6 +5,8 @@ import lombok.*;
 @Data
 public class Schwein {
 
+
+    public static final int INITIAL_WEIGHT = 10;
     private String name;
 
     @Setter(AccessLevel.PRIVATE)
@@ -17,7 +19,7 @@ public class Schwein {
 
     public Schwein(String name) {
        setName(name);
-       setGewicht(10);
+       setGewicht(INITIAL_WEIGHT);
     }
 
     public final void setName(String name) {
