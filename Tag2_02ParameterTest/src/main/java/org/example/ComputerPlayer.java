@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.util.List;
+
 public class ComputerPlayer  {
 
     private static final int TURNS [] = {3,1,1,2};
@@ -13,6 +15,9 @@ public class ComputerPlayer  {
      */
 
     public Integer doTurn(Integer board) {
+
+
+
         int turn = TURNS[board % 4];
         System.out.println(String.format("Computer nimmt %s Steine.", turn));
         return turn;

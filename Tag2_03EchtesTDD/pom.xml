@@ -3,14 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Tag2_02ParameterTest</artifactId>
+  <artifactId>Tag2_03EchtesTDD</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Tag2_02ParameterTest</name>
+  <name>Tag2_03EchtesTDD</name>
   <url>http://maven.apache.org</url>
-
-
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,7 +53,6 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -147,4 +144,3 @@
     </pluginManagement>
   </build>
 </project>
-

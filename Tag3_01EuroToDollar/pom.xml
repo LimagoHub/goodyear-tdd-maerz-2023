@@ -3,13 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Tag2_02ParameterTest</artifactId>
+  <artifactId>Tag3_01EuroToDollar</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Tag2_02ParameterTest</name>
+  <name>Tag3_01EuroToDollar</name>
   <url>http://maven.apache.org</url>
-
 
 
   <properties>
@@ -55,7 +54,6 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -147,4 +145,3 @@
     </pluginManagement>
   </build>
 </project>
-

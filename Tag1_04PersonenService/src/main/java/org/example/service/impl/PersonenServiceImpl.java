@@ -30,6 +30,7 @@ public class PersonenServiceImpl implements PersonenService {
     public void speichern(Person person) throws PersonenServiceException {
         try {
             checkPerson(person);
+            person.setId(UUID.randomUUID().toString());
             repo.save(person);
         } catch (RuntimeException e) {
             throw new PersonenServiceException("interner Fehler", e);
