@@ -3,6 +3,7 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.persistence.Person;
 import org.example.persistence.PersonenRepository;
+import org.example.service.BlacklistService;
 import org.example.service.PersonenService;
 import org.example.service.PersonenServiceException;
 
@@ -10,7 +11,9 @@ import org.example.service.PersonenServiceException;
 @RequiredArgsConstructor
 public class PersonenServiceImpl implements PersonenService {
 
+    //Dependency-Injection oder Inversion of Control
     private final PersonenRepository repo;
+    private final BlacklistService blacklistService;
 
     /*
         1.) wenn person = null => PSE
@@ -23,11 +26,31 @@ public class PersonenServiceImpl implements PersonenService {
      */
     @Override
     public void speichern(Person person) throws PersonenServiceException {
+        try {
+            checkPerson(person);
+            repo.save(person);
+        } catch (RuntimeException e) {
+            throw new PersonenServiceException("interner Fehler", e);
+        }
+    }
+
+    private void checkPerson(final Person person) throws PersonenServiceException {
+        validate(person);
+        businessCheck(person);
+    }
+
+    private void businessCheck(Person person) throws PersonenServiceException {
+        if(blacklistService.isBlacklisted(person))
+            throw new PersonenServiceException("Antipath");
+    }
+
+    private static void validate(Person person) throws PersonenServiceException {
         if(person == null)
             throw new PersonenServiceException("Person darf nicht null sein");
         if(person.getVorname() == null || person.getVorname().length() < 2)
             throw new PersonenServiceException("Vorname zu kurz");
 
-
+        if(person.getNachname() == null || person.getNachname().length() < 2)
+            throw new PersonenServiceException("Nachname zu kurz");
     }
 }

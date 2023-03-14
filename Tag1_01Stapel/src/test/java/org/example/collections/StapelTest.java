@@ -40,6 +40,20 @@ class StapelTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void isEmpty_stackEmptyAgain_returnsTrue() throws Exception{
+
+        // Arrange
+
+        objectUnderTest.push(1);
+        objectUnderTest.pop();
+        // Action
+        var result = objectUnderTest.isEmpty();
+        // Assertion
+
+        assertTrue(result);
+    }
     @Test
     void push_pushValueIntoStapel_ValueIsOnTopOfStapel() throws Exception{
 
