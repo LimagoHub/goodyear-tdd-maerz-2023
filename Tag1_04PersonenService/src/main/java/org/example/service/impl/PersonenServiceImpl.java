@@ -7,6 +7,8 @@ import org.example.service.BlacklistService;
 import org.example.service.PersonenService;
 import org.example.service.PersonenServiceException;
 
+import java.util.UUID;
+
 
 @RequiredArgsConstructor
 public class PersonenServiceImpl implements PersonenService {
@@ -32,6 +34,12 @@ public class PersonenServiceImpl implements PersonenService {
         } catch (RuntimeException e) {
             throw new PersonenServiceException("interner Fehler", e);
         }
+    }
+
+    @Override
+    public void speichern(String vorname, String nachname) throws PersonenServiceException {
+        Person p= Person.builder().id(UUID.randomUUID().toString()).vorname(vorname).nachname(nachname).build();
+        speichern(p);
     }
 
     private void checkPerson(final Person person) throws PersonenServiceException {
