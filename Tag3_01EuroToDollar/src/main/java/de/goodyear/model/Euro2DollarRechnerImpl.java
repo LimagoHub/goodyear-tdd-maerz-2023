@@ -1,6 +1,6 @@
 package de.goodyear.model;
 
-public class Euro2DollarRechnerImpl implements IEuro2DollarRechner {
+public class Euro2DollarRechnerImpl implements Euro2DollarRechner {
 	
 	
 	/* (non-Javadoc)

@@ -1,24 +1,22 @@
 package de.goodyear.application;
 
 
+import de.goodyear.gui.Euro2DollarRechnerViewImpl;
 import de.goodyear.gui.Euro2DollarRechnerView;
-import de.goodyear.gui.IEuro2DollarRechnerView;
+import de.goodyear.gui.presenter.Euro2DollarPresenterImpl;
 import de.goodyear.gui.presenter.Euro2DollarPresenter;
-import de.goodyear.gui.presenter.IEuro2DollarPresenter;
 import de.goodyear.model.Euro2DollarRechnerImpl;
-import de.goodyear.model.IEuro2DollarRechner;
+import de.goodyear.model.Euro2DollarRechner;
 
 public class Main {
 
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
-		IEuro2DollarRechner model = new Euro2DollarRechnerImpl();
+		Euro2DollarRechner model = new Euro2DollarRechnerImpl();
 		
-		IEuro2DollarPresenter presenter = new Euro2DollarPresenter();
+		Euro2DollarPresenter presenter = new Euro2DollarPresenterImpl();
 		
-		IEuro2DollarRechnerView view = new Euro2DollarRechnerView();
+		Euro2DollarRechnerView view = new Euro2DollarRechnerViewImpl();
 		
 		
 		presenter.setView(view);
