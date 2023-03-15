@@ -49,14 +49,19 @@ public class Euro2DollarPresenterImpl implements Euro2DollarPresenter {
 	@Override
 	public void onRechnen() {
 
-		// Eurowert aus der Maske holen
-		// Eurowert wenn möglich in double wandeln
-		// Wenn nicht möglich Fehlermeldung in dollarfeld schreiben (return)
-		// Eurowert an Model übergeben
-		// Ergebnis in String wandeln
-		// ergebnis in Maske schreiben
-		// Fehler immer in Dollarfeld schreiben
-	
+		try {
+			double euro = Double.valueOf(view.getEuro());
+			double dollar = model.calculateEuro2Dollar(euro);
+			view.setDollar(String.format("%.2f",dollar));
+		} catch (NullPointerException  e) {
+			view.setDollar("Kein Wert gefunden");
+		} catch (NumberFormatException e) {
+			view.setDollar("Keine Zahl");
+		} catch (RuntimeException e) {
+			view.setDollar("Fehler im Service");
+		}
+
+
 	}
 	
 	/* (non-Javadoc)
@@ -72,15 +77,21 @@ public class Euro2DollarPresenterImpl implements Euro2DollarPresenter {
 	 */
 	@Override
 	public void onPopulateItems() {
-		// "0" in Dollar und Eurofeld schreiben
-		// Rechnen aktivieren
+		view.setDollar("0");
+		view.setEuro("0");
+		view.setRechnenEnabled(true);
 
 	}
 
 	@Override
 	public void updateRechnenActionState() {
+		try {
+			Double.valueOf(getView().getEuro());
+			getView().setRechnenEnabled(true);
+		} catch (RuntimeException e) {
+			getView().setRechnenEnabled(false);
+		}
 
-		// Erst mal noch nicht implementieren
 	}
 
 }
