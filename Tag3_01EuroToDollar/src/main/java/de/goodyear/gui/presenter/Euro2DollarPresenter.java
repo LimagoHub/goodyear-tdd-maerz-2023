@@ -6,6 +6,7 @@ import de.goodyear.model.Euro2DollarRechner;
 
 public interface Euro2DollarPresenter {
 
+	// Setterinjection fuer Dependecies
 	Euro2DollarRechnerView getView();
 
 	void setView(Euro2DollarRechnerView view);
@@ -13,12 +14,15 @@ public interface Euro2DollarPresenter {
 	Euro2DollarRechner getModel();
 
 	void setModel(Euro2DollarRechner model);
+	// Injection Ende
 
-	void onRechnen();
+	// Presenter Methoden
+	void onRechnen();  // Rechnenevent aus der Maske
 
-	void onBeenden();
+	void onBeenden(); // Beendenevent aus der Maske
 
-	void onPopulateItems();
+	// Codebehind
+	void onPopulateItems(); // Maske initialisieren
 	
 	void updateRechnenActionState(); // Nicht beachten
 

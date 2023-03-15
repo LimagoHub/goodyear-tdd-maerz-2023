@@ -64,7 +64,7 @@ public class Euro2DollarPresenterImpl implements Euro2DollarPresenter {
 	 */
 	@Override
 	public void onBeenden() {  
-		 view.close();
+		view.close();
 	}
 	
 	/* (non-Javadoc)
