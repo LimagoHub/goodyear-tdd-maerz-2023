@@ -9,3 +9,5 @@ a
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ]
 -src/main/java/org/example/ComputerPlayer.java,7\7\776fff20b79a48b59090b1dea7df66a7e35ce6da
+X
+(src/main/java/org/example/io/Writer.java,e\1\e17041588d5a01f1eb59417c9eca62d1be39fcdc

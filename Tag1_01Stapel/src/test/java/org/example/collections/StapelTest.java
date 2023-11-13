@@ -69,24 +69,28 @@ class StapelTest {
     @Test
     void push_fillupToLimit_noExceptionIsThrown() throws Exception{
 
-        // Arrange
-        for(int i = 0; i < 9; i++)
-            objectUnderTest.push(1);
+        fillUpToLimit();
 
-        // Action
-        assertDoesNotThrow(()->objectUnderTest.push(1));
 
     }
+
+
 
     @Test
     void push_overflow_throwsStapelException() throws Exception{
 
         // Arrange
-        for(int i = 0; i < 10; i++)
-            objectUnderTest.push(1);
+        fillUpToLimit();
+
 
         // Action
         StapelException ex = assertThrows(StapelException.class, ()->objectUnderTest.push(1));
         assertEquals("Overflow", ex.getMessage());
+    }
+
+    private void fillUpToLimit() {
+        // Arrange
+        for(int i = 0; i < 10; i++)
+            assertDoesNotThrow(()->objectUnderTest.push(1));
     }
 }
